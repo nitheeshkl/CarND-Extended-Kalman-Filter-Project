@@ -11,3 +11,5 @@ dataset file and the calculated RMSE is displayed on the simulator.
 
 To run the project, first start the simulator and then run the generated
 FusionEKF binary from the project.
+
+![RMSE](https://raw.githubusercontent.com/nitheeshkl/CarND-Extended-Kalman-Filter-Project/master/rmse.png)
