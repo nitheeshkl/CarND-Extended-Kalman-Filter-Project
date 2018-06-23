@@ -56,3 +56,7 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
 
   return Hj;
 }
+
+double Tools::NormalizeAngle(double& angle) {
+  return atan2(sin(angle), cos(angle));
+}

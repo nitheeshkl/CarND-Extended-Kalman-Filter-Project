@@ -68,9 +68,9 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
       /**
       Convert radar from polar to cartesian coordinates and initialize state.
       */
-      float rho = measurement_pack.raw_measurements_[0];
-      float phi = measurement_pack.raw_measurements_[1];
-      float rhodot = measurement_pack.raw_measurements_[2];
+      const float rho = measurement_pack.raw_measurements_[0];
+      const float phi = measurement_pack.raw_measurements_[1];
+      const float rhodot = measurement_pack.raw_measurements_[2];
       x << rho*cos(phi), rho*sin(phi), rhodot*cos(phi), rhodot*sin(phi);
     }
     else if (measurement_pack.sensor_type_ == MeasurementPackage::LASER) {
@@ -118,12 +118,12 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
      * Use noise_ax = 9 and noise_ay = 9 for your Q matrix.
    */
   // time delta in sec
-  float dt = (measurement_pack.timestamp_ - previous_timestamp_)/1000000.0;
+  const float dt = (measurement_pack.timestamp_ - previous_timestamp_)/1000000.0;
   previous_timestamp_ = measurement_pack.timestamp_;
 
-  float dt_2 = dt*dt;
-  float dt_3 = dt_2*dt;
-  float dt_4 = dt_3*dt;
+  const float dt_2 = dt*dt;
+  const float dt_3 = dt_2*dt;
+  const float dt_4 = dt_3*dt;
 
   ekf_.F_(0, 2) = dt;
   ekf_.F_(1, 3) = dt;
